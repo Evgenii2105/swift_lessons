@@ -4,7 +4,11 @@
 
 ## User settings
 xcuserdata/
-
+xcuserdata
+xcuserdata/*
+*.xcuserstate
+.xcuserstate
+*.playground
 ## Obj-C/Swift specific
 *.hmap
 
@@ -16,9 +20,8 @@ xcuserdata/
 ## Playgrounds
 timeline.xctimeline
 playground.xcworkspace
-xcuserdata
-xcuserdata/*
-*.xcuserstate
+
+.DS_Store
 
 # Swift Package Manager
 #
