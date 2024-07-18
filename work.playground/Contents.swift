@@ -104,6 +104,54 @@ print((parts[0]))
 print((parts[1]))
 
 
+//Создай переменную опциональную типа Int или String и напиши все способы как можно избавиться от опционал чтобы получить непосредственно значение
+
+var age: Int?
+age = 26
+
+if age != nil {
+    print("Возраст пользователя \(age!)")
+} else {
+    print("Данные не были получены")
+}
+
+
+var FIO: String?
+FIO = "Фомичев Евгений Вадимович"
+
+if let newFIO = FIO {
+    print("ФИО пользователя \(newFIO)")
+} else {
+    print("Данные не были получены")
+}
+
+
+
+print("ФИО пользователя \(FIO!)")
+
+
+
+var date: String?
+date = "17.07.24"
+if date != nil {
+    print("Текущая дата \(date!)")
+}
+
+let age1 : String = "22"
+if Int(age1) != nil {
+    let ageInt = Int(age1)!
+    print("Возраст пользователя \(ageInt)")
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
