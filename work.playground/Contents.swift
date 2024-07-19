@@ -115,38 +115,39 @@ if age != nil {
     print("Данные не были получены")
 }
 
+print("Возраст пользователя \(age!)")
 
-var FIO: String?
-FIO = "Фомичев Евгений Вадимович"
 
-if let newFIO = FIO {
-    print("ФИО пользователя \(newFIO)")
+if let newage = age {
+    print("Возраст пользователя \(newage)")
 } else {
     print("Данные не были получены")
 }
 
 
+let Defaultuserage = 26
+var userDefaultdage : Int?
 
-print("ФИО пользователя \(FIO!)")
+var userage = userDefaultdage ?? Defaultuserage
+print(userage)
 
 
-
-var date: String?
-date = "17.07.24"
-if date != nil {
-    print("Текущая дата \(date!)")
+if age == 26 {
+    print("Возраст равен 26")
+}
+else{
+    print("Возраст не равен 26")
 }
 
-let age1 : String = "22"
-if Int(age1) != nil {
-    let ageInt = Int(age1)!
-    print("Возраст пользователя \(ageInt)")
+let printAge =  {
+    guard let age = age else {
+        print("Значение age равно nil")
+        return
+    }
+    print("Возраст: \(age)")
 }
 
-
-
-
-
+printAge()
 
 
 
