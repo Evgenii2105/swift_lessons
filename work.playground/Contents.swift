@@ -72,8 +72,11 @@ print("Буква (a) повторяется \(count) раз(а)")
 
 print(String(str.reversed()))
 
+print(String(str.reversed()))
+
 var reversedstr = String(str.reversed())
 print(reversedstr)
+
 
 // 2.7 Создай строку со значением "abc" и строку со значением "def" и обьедини их (2мя разными способами)
 
@@ -103,39 +106,56 @@ var parts = string.split(separator: " ")
 print((parts[0]))
 print((parts[1]))
 
+//Создай переменную опциональную типа Int или String и напиши все способы как можно избавиться от опционал чтобы получить непосредственно значение
+
+var age: Int?
+age = 26
+
+if age != nil {
+    print("Возраст пользователя \(age!)")
+} else {
+    print("Данные не были получены")
+}
 
 
+let age1 : String = "22"
+if Int(age1) != nil {
+    let ageInt = Int(age1)!
+    print("Возраст пользователя \(ageInt)")
+}
 
 
+print("Возраст пользователя \(age!)")
+
+var FIO: String?
+FIO = "Фомичев Евгений Вадимович"
+
+if let newFIO = FIO {
+    print("ФИО пользователя \(newFIO)")
+if let newage = age {
+    print("Возраст пользователя \(newage)")
+} else {
+    print("Данные не были получены")
+}
 
 
+let Defaultuserage = 26
+var userDefaultdage : Int?
+
+print("ФИО пользователя \(FIO!)")
+var userage = userDefaultdage ?? Defaultuserage
+print(userage)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
+        let printAge =  {
+            guard let age = age else {
+                print("Значение age равно nil")
+                return
+            }
+            print("Возраст: \(age)")
+        }
+        
+        printAge()
+        
+    }
 
