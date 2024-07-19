@@ -72,8 +72,11 @@ print("Буква (a) повторяется \(count) раз(а)")
 
 print(String(str.reversed()))
 
+print(String(str.reversed()))
+
 var reversedstr = String(str.reversed())
 print(reversedstr)
+
 
 // 2.7 Создай строку со значением "abc" и строку со значением "def" и обьедини их (2мя разными способами)
 
@@ -155,39 +158,4 @@ print(userage)
         printAge()
         
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
 
