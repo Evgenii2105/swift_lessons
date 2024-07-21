@@ -85,7 +85,9 @@ var b: String = "def"
 
 var c = a + b
 
-a += b
+let result1 = a.appending(b)
+print(result1)
+
 
 // 2.8 Создай строчку со значением "car" замени в ней "r" на "p"
 
