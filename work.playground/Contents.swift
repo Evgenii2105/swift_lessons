@@ -98,7 +98,7 @@ import UIKit
 //
 //print (d)
 //
-//// 2.9 доп*. Создай строку "Привет Юра" и разбей их на 2 строки
+////  2.9 доп*. Создай строку "Привет Юра" и разбей их на 2 строки
 //
 //var string = "Привет Юра"
 //var parts = string.split(separator: " ")
@@ -108,6 +108,9 @@ import UIKit
 
 // 3. Создай переменную опциональную типа Int или String и напиши все способы как можно избавиться от опционал чтобы получить непосредственно значение
 
+//var age: Int?
+//age = 26
+//
 //if age != nil {
 //    print("Возраст пользователя \(age!)")
 //} else {
@@ -216,12 +219,25 @@ if let element = dictionary["Sum"] as? Int{
 
 // 4.4 Создай массив из опциональных чисел 10 умножь все данные в массиве на 5. Затем отфильтруй те которые больше 5 элемента в массиве
 
-var arrayNumber: [Int?] = [3, 2 , 6, nil, 12, 10, 7, 9, 14, 5, 8, nil]
-var multipliedArray = arrayNumber.compactMap { $0 }.map { $0 * 5 }
+var arrayNumber: [Int?] = [3,2,6,12,10,7,9,14,5,8]
+let multipliedArray = arrayNumber.compactMap { $0 }.map { $0 * 5 }
 
-if multipliedArray.indices.count >= 4  {
-    multipliedArray = multipliedArray.filter { $0 > multipliedArray[4] }
+let filterArrayNumber = multipliedArray.filter { $0 > multipliedArray[4] }
+print(filterArrayNumber)
+
+
+// 4.5 Посчитай сумму всех элементов в этом массиве. 3 способа
+
+let noNilNumber = arrayNumber.compactMap { $0 }
+
+let sumArray = noNilNumber.reduce(0, +)
+print(sumArray)
+
+var sumArray1 = 0
+for number in noNilNumber{
+    sumArray1 += number
 }
+print(sumArray1)
 
 print(multipliedArray)
 
@@ -247,5 +263,4 @@ while i < arrayNumber.count {
     i += 1
 }
 print(sumArray2)
-
 
