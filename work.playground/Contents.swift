@@ -163,24 +163,25 @@ import UIKit
 /* 4.1 Создай массив из Int. Заполни чем хочешь. Заполни через цикл и через repeating. Чтобы элементов по 10 было. 
  Отсортируй по возрастанию и отфильтруй те которые деляется на 3 без остатка.*/
 
-//var array = Array(repeating: 10, count: 10)
-//
-//var array1 = [Int]()
-//
-//for them in 0..<10 {
-//    array1.append(Int.random(in: 0...50))
-//}
-//
-//array1.sort()
-//
-//
-//let filteredArray = array1.filter { $0 % 3 == 0 }
-//
-//
+var array = Array(repeating: 10, count: 10)
+
+var array1 = [Int]()
+
+for them in 0..<10 {
+    array1.append(Int.random(in: 0...50))
+}
+
+array1.sort()
+
+
+let filteredArray = array1.filter { $0 % 3 == 0 }
+
+
 //// 4.2 Создай Множество с любым набором и отфильтруй по убыванию
-//
-var bray = [55*5, 83*6, 65*4, 5*2, 9*9]
-bray.sort(by: >)
+
+var sumSet: Set<Int> = [2, 5, 8, 15, 9, 4, 7]
+
+var sumSet1 = sumSet.reduce(0, +)
 
 
 /*  4.3 Создай словарь с типом [String: Any]. Добавь в него переменные типа Int, String, Bool массив и множество из шага выше (в качестве значения) ключи какие хочешь используй. Затем распечай каждое из значений из словаря 2 способами сначала по ключу потом через цикл. Любому из значений заданий значение nil именно чтобы было nil.*/
@@ -189,45 +190,38 @@ var a = 2
 var b = 3
 var c = a==b
 
-let sum = bray.reduce(0,+)
-print(sum)
-
-var dictionary: [String:Any?] = ["Age": nil,
+var dictionary: [String:Any?] = ["Age": 26,
                                "Name": "Evgenii",
                                "Bool": c,
-                               "Sum": sum]
+                               "Sum": sumSet1]   //?????? или sumSet1
+
+dictionary["Age"]? = nil
+
+print(dictionary)
 
 
-print(dictionary["Age"])
-
-print(dictionary["Name"])
-print(dictionary["Bool"])
-print(dictionary["Sum"])
-
-
-if let element = dictionary["Age"]{
-    print(element)
+if let element1 = dictionary["Age"] as? Int{
+    print(type(of: element1))
 }
 
-if let element = dictionary["Name"]{
-    print(element)
+if let element = dictionary["Name"] as? String{
+    print(type(of: element))
 }
 
-if let element = dictionary["Bool"]{
-    print(element)
+if let element = dictionary["Bool"] as? Bool{
+    print(type(of: element))
 }
 
-if let element = dictionary["Sum"]{
-    print(element)
+if let element = dictionary["Sum"] as? Int{
+    print(type(of: element))
 }
+
+
 
 // 4.4 Создай массив из опциональных чисел 10 умножь все данные в массиве на 5. Затем отфильтруй те которые больше 5 элемента в массиве
 
 var arrayNumber: [Int?] = [3,2,6,12,10,7,9,14,5,8]
-let noNilNumber = arrayNumber.compactMap { $0 }
-
-let multipliedArray = noNilNumber.map { $0 * 5 }
-print(multipliedArray)
+let multipliedArray = arrayNumber.compactMap { $0 }.map { $0 * 5 }
 
 let filterArrayNumber = multipliedArray.filter { $0 > multipliedArray[4] }
 print(filterArrayNumber)
@@ -235,11 +229,13 @@ print(filterArrayNumber)
 
 // 4.5 Посчитай сумму всех элементов в этом массиве. 3 способа
 
+let noNilNumber = arrayNumber.compactMap { $0 }
+
 let sumArray = noNilNumber.reduce(0, +)
 print(sumArray)
 
 var sumArray1 = 0
-for number in noNilNumber {
+for number in noNilNumber{
     sumArray1 += number
 }
 print(sumArray1)
@@ -253,3 +249,4 @@ while i < arrayNumber.count {
     i += 1
 }
 print(sumArray2)
+
