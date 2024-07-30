@@ -106,58 +106,146 @@ import UIKit
 //print((parts[1]))
 
 
-//Создай переменную опциональную типа Int или String и напиши все способы как можно избавиться от опционал чтобы получить непосредственно значение
+// 3. Создай переменную опциональную типа Int или String и напиши все способы как можно избавиться от опционал чтобы получить непосредственно значение
 
-var age: Int?
-age = 26
+//if age != nil {
+//    print("Возраст пользователя \(age!)")
+//} else {
+//    print("Данные не были получены")
+//}
+//
+//
+//let age1 : String = "22"
+//if Int(age1) != nil {
+//    let ageInt = Int(age1)!
+//    print("Возраст пользователя \(ageInt)")
+//}
+//
+//
+//print("Возраст пользователя \(age!)")
+//
+//var FIO: String?
+//FIO = "Фомичев Евгений Вадимович"
+//
+//if let newFIO = FIO {
+//    print("ФИО пользователя \(newFIO)")
+//if let newage = age {
+//    print("Возраст пользователя \(newage)")
+//} else {
+//    print("Данные не были получены")
+//}
+//
+//
+//let Defaultuserage = 26
+//var userDefaultdage : Int?
+//
+//print("ФИО пользователя \(FIO!)")
+//var userage = userDefaultdage ?? Defaultuserage
+//print(userage)
+//
+//
+//        let printAge =  {
+//            guard let age = age else {
+//                print("Значение age равно nil")
+//                return
+//            }
+//            print("Возраст: \(age)")
+//        }
+//        
+//        printAge()
+//        
+//    }
 
-if age != nil {
-    print("Возраст пользователя \(age!)")
-} else {
-    print("Данные не были получены")
+/* 4.1 Создай массив из Int. Заполни чем хочешь. Заполни через цикл и через repeating. Чтобы элементов по 10 было.
+ Отсортируй по возрастанию и отфильтруй те которые деляется на 3 без остатка.*/
+
+var array = Array(repeating: 10, count: 10)
+
+var array1 = [Int]()
+
+for them in 0..<10 {
+    array1.append(Int.random(in: 0...50))
+}
+
+array1.sort()
+
+
+let filteredArray = array1.filter { $0 % 3 == 0 }
+
+
+//// 4.2 Создай Множество с любым набором и отфильтруй по убыванию
+
+var sumSet: Set<Int> = [2, 5, 8, 15, 9, 4, 7]
+
+var sumSet1 = sumSet.reduce(0, +)
+
+
+/*  4.3 Создай словарь с типом [String: Any]. Добавь в него переменные типа Int, String, Bool массив и множество из шага выше (в качестве значения) ключи какие хочешь используй. Затем распечай каждое из значений из словаря 2 способами сначала по ключу потом через цикл. Любому из значений заданий значение nil именно чтобы было nil.*/
+
+var a = 2
+var b = 3
+var c = a==b
+
+var dictionary: [String:Any?] = ["Age": 26,
+                               "Name": "Evgenii",
+                               "Bool": c,
+                               "Sum": sumSet1]   //?????? или sumSet1
+
+dictionary["Age"]? = nil
+
+print(dictionary)
+
+
+if let element1 = dictionary["Age"] as? Int{
+    print(type(of: element1))
+}
+
+if let element = dictionary["Name"] as? String{
+    print(type(of: element))
+}
+
+if let element = dictionary["Bool"] as? Bool{
+    print(type(of: element))
+}
+
+if let element = dictionary["Sum"] as? Int{
+    print(type(of: element))
 }
 
 
-let age1 : String = "22"
-if Int(age1) != nil {
-    let ageInt = Int(age1)!
-    print("Возраст пользователя \(ageInt)")
+
+// 4.4 Создай массив из опциональных чисел 10 умножь все данные в массиве на 5. Затем отфильтруй те которые больше 5 элемента в массиве
+
+var arrayNumber: [Int?] = [3, 2 , 6, nil, 12, 10, 7, 9, 14, 5, 8, nil]
+var multipliedArray = arrayNumber.compactMap { $0 }.map { $0 * 5 }
+
+if multipliedArray.indices.count >= 4  {
+    multipliedArray = multipliedArray.filter { $0 > multipliedArray[4] }
 }
 
+print(multipliedArray)
 
-print("Возраст пользователя \(age!)")
+// 4.5 Посчитай сумму всех элементов в этом массиве. 3 способа
 
-var FIO: String?
-FIO = "Фомичев Евгений Вадимович"
+let noNilNumber = arrayNumber.compactMap { $0 }
 
-if let newFIO = FIO {
-    print("ФИО пользователя \(newFIO)")
-if let newage = age {
-    print("Возраст пользователя \(newage)")
-} else {
-    print("Данные не были получены")
+let sumArray = noNilNumber.reduce(0, +)
+print(sumArray)
+
+var sumArray1 = 0
+for number in noNilNumber{
+    sumArray1 += number
 }
+print(sumArray1)
 
-
-let Defaultuserage = 26
-var userDefaultdage : Int?
-
-print("ФИО пользователя \(FIO!)")
-var userage = userDefaultdage ?? Defaultuserage
-print(userage)
-
-
-        let printAge =  {
-            guard let age = age else {
-                print("Значение age равно nil")
-                return
-            }
-            print("Возраст: \(age)")
-        }
-        
-        printAge()
-        
+var i = 0
+var sumArray2 = 0
+while i < arrayNumber.count {
+    if let number = arrayNumber[i] {
+        sumArray2 += number
     }
-
+    i += 1
+}
+print(sumArray2)
 
 
