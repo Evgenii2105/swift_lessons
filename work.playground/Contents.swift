@@ -162,93 +162,241 @@ import UIKit
 /* 4.1 Создай массив из Int. Заполни чем хочешь. Заполни через цикл и через repeating. Чтобы элементов по 10 было.
  Отсортируй по возрастанию и отфильтруй те которые деляется на 3 без остатка.*/
 
-var array = Array(repeating: 10, count: 10)
+//var array = Array(repeating: 10, count: 10)
+//
+//var array1 = [Int]()
+//
+//for them in 0..<10 {
+//    array1.append(Int.random(in: 0...50))
+//}
+//
+//array1.sort()
+//
+//
+//let filteredArray = array1.filter { $0 % 3 == 0 }
+//
+//
+////// 4.2 Создай Множество с любым набором и отфильтруй по убыванию
+//
+//var sumSet: Set<Int> = [2, 5, 8, 15, 9, 4, 7]
+//
+//var sumSet1 = sumSet.reduce(0, +)
+//
+//
+///*  4.3 Создай словарь с типом [String: Any]. Добавь в него переменные типа Int, String, Bool массив и множество из шага выше (в качестве значения) ключи какие хочешь используй. Затем распечай каждое из значений из словаря 2 способами сначала по ключу потом через цикл. Любому из значений заданий значение nil именно чтобы было nil.*/
+//
+//var a = 2
+//var b = 3
+//var c = a==b
+//
+//var dictionary: [String:Any?] = ["Age": 26,
+//                               "Name": "Evgenii",
+//                               "Bool": c,
+//                               "Sum": sumSet1]
+//
+//dictionary["Age"]? = nil
+//
+//print(dictionary)
+//
+//
+//if let element1 = dictionary["Age"] as? Int{
+//    print(type(of: element1))
+//}
+//
+//if let element = dictionary["Name"] as? String{
+//    print(type(of: element))
+//}
+//
+//if let element = dictionary["Bool"] as? Bool{
+//    print(type(of: element))
+//}
+//
+//if let element = dictionary["Sum"] as? Int{
+//    print(type(of: element))
+//}
+//
+//
+//
+//// 4.4 Создай массив из опциональных чисел 10 умножь все данные в массиве на 5. Затем отфильтруй те которые больше 5 элемента в массиве
+//
+//var arrayNumber: [Int?] = [3, 2 , 6, nil, 12, 10, 7, 9, 14, 5, 8, nil]
+//var multipliedArray = arrayNumber.compactMap { $0 }.map { $0 * 5 }
+//
+//if multipliedArray.indices.count >= 4  {
+//    multipliedArray = multipliedArray.filter { $0 > multipliedArray[4] }
+//}
+//
+//print(multipliedArray)
+//
+//
+//// 4.5 Посчитай сумму всех элементов в этом массиве. 3 способа
+//
+//let noNilNumber = arrayNumber.compactMap { $0 }
+//
+//let sumArray = noNilNumber.reduce(0, +)
+//print(sumArray)
+//
+//var sumArray1 = 0
+//for number in noNilNumber{
+//    sumArray1 += number
+//}
+//print(sumArray1)
+//
+//var i = 0
+//var sumArray2 = 0
+//while i < arrayNumber.count {
+//    if let number = arrayNumber[i] {
+//        sumArray2 += number
+//    }
+//    i += 1
+//}
+//print(sumArray2)
 
-var array1 = [Int]()
+//5.1 Создать структуру и класс. (Cat Dog)
 
-for them in 0..<10 {
-    array1.append(Int.random(in: 0...50))
-}
-
-array1.sort()
-
-
-let filteredArray = array1.filter { $0 % 3 == 0 }
-
-
-//// 4.2 Создай Множество с любым набором и отфильтруй по убыванию
-
-var sumSet: Set<Int> = [2, 5, 8, 15, 9, 4, 7]
-
-var sumSet1 = sumSet.reduce(0, +)
-
-
-/*  4.3 Создай словарь с типом [String: Any]. Добавь в него переменные типа Int, String, Bool массив и множество из шага выше (в качестве значения) ключи какие хочешь используй. Затем распечай каждое из значений из словаря 2 способами сначала по ключу потом через цикл. Любому из значений заданий значение nil именно чтобы было nil.*/
-
-var a = 2
-var b = 3
-var c = a==b
-
-var dictionary: [String:Any?] = ["Age": 26,
-                               "Name": "Evgenii",
-                               "Bool": c,
-                               "Sum": sumSet1]
-
-dictionary["Age"]? = nil
-
-print(dictionary)
-
-
-if let element1 = dictionary["Age"] as? Int{
-    print(type(of: element1))
-}
-
-if let element = dictionary["Name"] as? String{
-    print(type(of: element))
-}
-
-if let element = dictionary["Bool"] as? Bool{
-    print(type(of: element))
-}
-
-if let element = dictionary["Sum"] as? Int{
-    print(type(of: element))
-}
-
-
-
-// 4.4 Создай массив из опциональных чисел 10 умножь все данные в массиве на 5. Затем отфильтруй те которые больше 5 элемента в массиве
-
-var arrayNumber: [Int?] = [3, 2 , 6, nil, 12, 10, 7, 9, 14, 5, 8, nil]
-var multipliedArray = arrayNumber.compactMap { $0 }.map { $0 * 5 }
-
-if multipliedArray.indices.count >= 4  {
-    multipliedArray = multipliedArray.filter { $0 > multipliedArray[4] }
-}
-
-print(multipliedArray)
-
-
-// 4.5 Посчитай сумму всех элементов в этом массиве. 3 способа
-
-let noNilNumber = arrayNumber.compactMap { $0 }
-
-let sumArray = noNilNumber.reduce(0, +)
-print(sumArray)
-
-var sumArray1 = 0
-for number in noNilNumber{
-    sumArray1 += number
-}
-print(sumArray1)
-
-var i = 0
-var sumArray2 = 0
-while i < arrayNumber.count {
-    if let number = arrayNumber[i] {
-        sumArray2 += number
+class Cat {
+    private var name = "барсик" {
+        didSet {
+            if !name.isEmpty { print("Мяу - мяу") }
+        }
     }
-    i += 1
+
+    func changeName(name: String) {
+        self.name = name
+    }
+    private let weight: Double
+    private let height: Double
+
+    convenience init() {
+        self.init(weight: 1.2, height: 1.2)
+    }
+
+    init(weight: Double, height: Double) {
+       self.weight = weight
+      self.height = height
+      self.object = Cat()
+    }
+
+    var object: Cat
 }
-print(sumArray2)
+var cat = Cat(weight: 1.1, height: 1.1)
+let cat1 = Cat()
+let cat2 = Cat()
+cat2.object = cat1
+
+
+let cat22 = Cat.init(weight: 2.5, height: 3.5)
+cat22.changeName(name: "Барсик")
+
+struct Dog {
+    private var name: String = "" {
+        didSet {
+            if !name.isEmpty { print("гав- гав") }
+        }
+    }
+
+    var nameDog2: String {
+        return name
+    }
+
+    private let weight1: Double = 2.1
+    private let height1: Double = 2.1
+    
+    init() {
+        self.init(name: "fs", weight1: 1.1, height1: 1.1)
+    }
+
+    init(name: String, weight1: Double, height1: Double) {
+        self.name = name
+       
+    }
+
+    mutating func setNewName(name: String) {
+       self.name = name
+    }
+  
+
+    var object: Dog {
+           get { return Dog() }
+           set {}
+       }
+}
+
+// 6.1 Создай энам который хранит в себе типы кузовов машины (купе седан и тд)
+    
+class Car { }
+
+class Sedan:Car {  }
+    
+class Coupe:Car {  }
+
+class Cabriolet:Car {  }
+
+
+enum CarBodyType {
+    case sedan(Sedan)
+    case coupe(Coupe)
+    case cabriolet(Cabriolet)
+    
+    func printBody() {
+        switch self {
+        case .sedan(let sedan):
+            print("это седан")
+        case .coupe(let coupe):
+            print("это купе")
+        case .cabriolet(let cabriolet):
+            print("Ура я купил кабриолет")
+        }
+    }
+}
+
+var CarBodyTypes = [CarBodyType]()
+CarBodyTypes.append(.sedan(Sedan()))
+CarBodyTypes.append(.cabriolet(Cabriolet()))
+CarBodyTypes.append(.coupe(Coupe()))
+
+// Oтдельно вне энама. Создай переменную которая хранит энама и затем в отдельном методе. проверь если данная переменая к примеру == купе то выведи (Ура я купил купе)
+
+func check(carBodyType: CarBodyType) {
+    switch carBodyType {
+    case .sedan(_):
+        print("Это седан")
+    case .coupe(_):
+        print("Это купе")
+    case .cabriolet(_):
+        print("Ура, кабриолет")
+    }
+}
+
+check(carBodyType: .cabriolet(Cabriolet()))
+check(carBodyType: .coupe(Coupe()))
+check(carBodyType: .sedan(Sedan()))
+
+// Создай энам отдельно со сторонами света (юг север) сделай им rawvalue String
+
+enum Compass: String {
+    case north
+    case south
+    case west
+    case east
+    case northEast
+    
+    static var allCases: [Compass] = [.north, .south, .east, .northEast, .west]
+   
+}
+
+Compass.allCases[2]
+
+for enumValeu in Compass.allCases {
+    print(enumValeu.rawValue)
+}
+
+
+
+
+
+
+
+
+
 
