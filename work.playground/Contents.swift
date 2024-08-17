@@ -252,3 +252,141 @@ while i < arrayNumber.count {
 }
 print(sumArray2)
 
+// 5
+
+class Cat {
+    private var name = "барсик" {
+        didSet {
+            if !name.isEmpty { print("Мяу - мяу") }
+        }
+    }
+
+    func changeName(name: String) {
+        self.name = name
+    }
+    private let weight: Double
+    private let height: Double
+
+    convenience init() {
+        self.init(weight: 1.2, height: 1.2)
+    }
+
+    init(weight: Double, height: Double) {
+       self.weight = weight
+      self.height = height
+      self.object = Cat()
+    }
+
+    var object: Cat
+}
+var cat = Cat(weight: 1.1, height: 1.1)
+let cat1 = Cat()
+let cat2 = Cat()
+cat2.object = cat1
+
+
+let cat22 = Cat.init(weight: 2.5, height: 3.5)
+cat22.changeName(name: "Барсик")
+
+struct Dog {
+    private var name: String = "" {
+        didSet {
+            if !name.isEmpty { print("гав- гав") }
+        }
+    }
+
+    var nameDog2: String {
+        return name
+    }
+
+    private let weight1: Double = 2.1
+    private let height1: Double = 2.1
+    
+    init() {
+        self.init(name: "fs", weight1: 1.1, height1: 1.1)
+    }
+
+    init(name: String, weight1: Double, height1: Double) {
+        self.name = name
+       
+    }
+
+    mutating func setNewName(name: String) {
+       self.name = name
+    }
+  
+
+    var object: Dog {
+           get { return Dog() }
+           set {}
+       }
+}
+
+// 6.1 Создай энам который хранит в себе типы кузовов машины (купе седан и тд)
+    
+class Car { }
+
+class Sedan:Car {  }
+    
+class Coupe:Car {  }
+
+class Cabriolet:Car {  }
+
+
+enum CarBodyType {
+    case sedan(Sedan)
+    case coupe(Coupe)
+    case cabriolet(Cabriolet)
+    
+    func printBody() {
+        switch self {
+        case .sedan(let sedan):
+            print("это седан")
+        case .coupe(let coupe):
+            print("это купе")
+        case .cabriolet(let cabriolet):
+            print("Ура я купил кабриолет")
+        }
+    }
+}
+
+var CarBodyTypes = [CarBodyType]()
+CarBodyTypes.append(.sedan(Sedan()))
+CarBodyTypes.append(.cabriolet(Cabriolet()))
+CarBodyTypes.append(.coupe(Coupe()))
+
+// Oтдельно вне энама. Создай переменную которая хранит энама и затем в отдельном методе. проверь если данная переменая к примеру == купе то выведи (Ура я купил купе)
+
+func check(carBodyType: CarBodyType) {
+    switch carBodyType {
+    case .sedan(_):
+        print("Это седан")
+    case .coupe(_):
+        print("Это купе")
+    case .cabriolet(_):
+        print("Ура, кабриолет")
+    }
+}
+
+check(carBodyType: .cabriolet(Cabriolet()))
+check(carBodyType: .coupe(Coupe()))
+check(carBodyType: .sedan(Sedan()))
+
+// Создай энам отдельно со сторонами света (юг север) сделай им rawvalue String
+
+enum Compass: String {
+    case north
+    case south
+    case west
+    case east
+    case northEast
+    
+    static var allCases: [Compass] = [.north, .south, .east, .northEast, .west]
+   
+}
+
+Compass.allCases[2]
+
+for enumValeu in Compass.allCases {
+    print(enumValeu.rawValue)
+}
